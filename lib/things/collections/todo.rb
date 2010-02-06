@@ -4,14 +4,23 @@ module Things
     
       class << self
         
-        # Get all todos
-        def all
-          reference.get.collect { |todo| Things::Todo.build(todo) }
-        end
-
-        # get references to all todos
+        # Returns an Appscript Reference to the entire collection of todos
         def reference
           Things::App.instance.todos
+        end
+        
+        # these are references and should be stored somewhere else...
+        Things::List::DEFAULTS.each do |list|
+          class_eval <<-"eval"
+            def #{list}
+              Things::App.lists.#{list}.todos
+            end
+          eval
+        end
+        
+        # Returns an array of Things::Todo objects
+        def all
+          reference.get.collect { |todo| Things::Todo.build(todo) }
         end
 
         # Get all not completed Todos
@@ -24,13 +33,7 @@ module Things
           result.compact
         end
     
-        Things::List::DEFAULTS.each do |list|
-          class_eval <<-"eval"
-            def #{list}
-              Things::App.lists.#{list}.todos
-            end
-          eval
-        end
+
 
       end
       
