@@ -68,7 +68,7 @@ The smartest is the Things::Todo.find method, which will accept either a name or
 
 If you want a more targeted approach, you can use Things::Todo.find_by_name or Things::Todo.find_by_id
 
-== Update
+=== Update
 
 To update a Todo, you need to fetch it, change the desired properties and save it. The following example illustrates this:
 
@@ -78,7 +78,7 @@ To update a Todo, you need to fetch it, change the desired properties and save i
 
 When you open up a Things window, you'll notice that the name has changed.
 
-== Delete
+=== Delete
 
 To delete a todo, simply call the delete method. The Todo will bo moved to Trash.
 
