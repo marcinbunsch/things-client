@@ -82,6 +82,9 @@ When you open up a Things window, you'll notice that the name has changed.
 
 To delete a todo, simply call the delete method. The Todo will bo moved to Trash.
 
+  todo = Things::Todo.find('Take out the garbage') # => #<Things::Todo:0x115dd84>
+  todo.delete
+
 = Roadmap
 
 Currently Todos are fully supported, which is the core functionality of Todos, but leaves a lot of room for improvement. The first step is to create a unified API for handling AppleScript objects which behave in a similar way.
