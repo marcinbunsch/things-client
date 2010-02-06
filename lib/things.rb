@@ -15,5 +15,10 @@ module Things
     autoload :Todo, File.dirname(__FILE__) + '/things/collections/todo'
   end
   
+  module Reference
+    autoload :Base, File.dirname(__FILE__) + '/things/reference/base'
+    autoload :Inheritance, File.dirname(__FILE__) + '/things/reference/inheritance'
+  end
+  
 end
 
