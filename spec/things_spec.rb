@@ -1,7 +1,15 @@
 require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 describe "Things" do
-  it "fails" do
-    fail "hey buddy, you should probably rename this file and start specing for real"
+
+  it "should load appropriate classes and modules" do
+    lambda do
+      Things::App
+      Things::Todo
+      Things::List
+      Things::Status
+      Things::Collections::Todo
+    end.should_not raise_error(NameError)
   end
+  
 end
