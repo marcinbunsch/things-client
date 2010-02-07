@@ -104,7 +104,9 @@ module Things
       # find a todo by a id
       # Returns a Things::Todo object associated with a reference
       def self.find_by_id(id)
-        reference = Things::App.instance.send(self.collection).ID(id).get rescue nil
+        finder = Appscript.its.id_.eq(id)
+        reference = Things::App.instance.send(self.collection)[finder].get rescue nil
+        reference = reference.first if reference.is_a?(Array)
         build(reference) if reference
       end
 
