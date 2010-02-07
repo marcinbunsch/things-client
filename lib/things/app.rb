@@ -1,14 +1,14 @@
 module Things
-  class App
+  class App < Reference::Base
     extend Appscript
     # get the singleton Application instance
     def self.instance
-      @things ||= app('Things')
+      reference ||= app('Things')
     end
     
     # refresh the Application instance
     def self.instance!
-      @things = app('Things')
+      reference = app('Things')
     end
     
     # get a collection of Lists

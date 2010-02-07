@@ -1,12 +1,12 @@
 module Things
   # Things::Todo
-  class Area < Reference::Record
+  class Project < Reference::Record
     
     properties :name
     # identifier is required for creation
-    identifier :area
+    identifier :project
     # collection is used for findings
-    collection :areas
+    collection :projects
    
   end
 end

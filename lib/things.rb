@@ -10,6 +10,9 @@ module Things
   autoload :Todo, File.dirname(__FILE__) + '/things/todo'
   autoload :List, File.dirname(__FILE__) + '/things/list'
   autoload :Status, File.dirname(__FILE__) + '/things/status'
+  autoload :Area, File.dirname(__FILE__) + '/things/area'
+  autoload :Project, File.dirname(__FILE__) + '/things/project'
+  autoload :Tag, File.dirname(__FILE__) + '/things/tag'
   
   module Collections
     autoload :Todo, File.dirname(__FILE__) + '/things/collections/todo'
@@ -18,6 +21,7 @@ module Things
   module Reference
     autoload :Base, File.dirname(__FILE__) + '/things/reference/base'
     autoload :Inheritance, File.dirname(__FILE__) + '/things/reference/inheritance'
+    autoload :Record, File.dirname(__FILE__) + '/things/reference/record'
   end
   
 end
