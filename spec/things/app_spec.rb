@@ -30,14 +30,5 @@ describe "Things::App" do
     end
 
   end
-  
-  describe '#todos' do
     
-    it "should return Things::Collections::Todo" do
-      Things::App.todos.should == Things::Collections::Todo
-    end
-
-  end
-
-  
 end

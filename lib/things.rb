@@ -14,11 +14,7 @@ module Things
   autoload :Project, File.dirname(__FILE__) + '/things/project'
   autoload :Tag, File.dirname(__FILE__) + '/things/tag'
   autoload :Person, File.dirname(__FILE__) + '/things/person'
-  
-  module Collections
-    autoload :Todo, File.dirname(__FILE__) + '/things/collections/todo'
-  end
-  
+    
   module Reference
     autoload :Base, File.dirname(__FILE__) + '/things/reference/base'
     autoload :Inheritance, File.dirname(__FILE__) + '/things/reference/inheritance'

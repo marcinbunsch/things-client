@@ -8,7 +8,10 @@ describe "Things" do
       Things::Todo
       Things::List
       Things::Status
-      Things::Collections::Todo
+      Things::Area
+      Things::Project
+      Things::Tag
+      Things::Person
     end.should_not raise_error(NameError)
   end
   

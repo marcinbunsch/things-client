@@ -16,11 +16,6 @@ module Things
       List
     end
     
-    # get a collection of Todos
-    def self.todos
-      Collections::Todo
-    end
-    
     # activate the app and bring it to front
     def self.activate
       instance!.activate
