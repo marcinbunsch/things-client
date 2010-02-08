@@ -5,7 +5,7 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "things"
-    gem.summary = %Q{A Ruby API client written for the Mac GTD app Things}
+    gem.summary = %Q{A Ruby client for Things' Applescript API. Things is a GTD app for OS X.}
     gem.email = "marcin@applicake.com"
     gem.homepage = "http://github.com/marcinbunsch/things"
     gem.authors = ["Marcin Bunsch"]
