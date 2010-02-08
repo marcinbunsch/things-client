@@ -3,15 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Things::Area" do
 
   before do
-    Things::App.activate
     @area = Things::Area.new(:name => 'TEST - Foo')
-  end
-  
-  after do
-    # close all windows when done
-    Things::App.instance.windows.get.each do |window|
-      Things::App.instance!.close(window)
-    end
   end
   
   describe "#self.new" do

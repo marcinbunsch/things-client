@@ -3,17 +3,9 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Things::Tag" do
 
   before do
-    Things::App.activate
     @tag = Things::Tag.new(:name => 'TEST - Foo')
   end
-  
-  after do
-    # close all windows when done
-    Things::App.instance.windows.get.each do |window|
-      Things::App.instance!.close(window)
-    end
-  end
-  
+    
   describe "#self.new" do
       
     it "should create a new Things::Tag instance with properties" do      

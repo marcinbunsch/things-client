@@ -3,15 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 describe "Things::Todo" do
 
   before do
-    Things::App.activate
     @todo = Things::Todo.new(:name => 'TEST - Foo', :notes => 'TEST - Fooer')
-  end
-  
-  after do
-    # close all windows when done
-    Things::App.instance.windows.get.each do |window|
-      Things::App.instance!.close(window)
-    end
   end
   
   describe "#self.new" do
@@ -23,7 +15,7 @@ describe "Things::Todo" do
     
     it "should not be sent to Things yet" do
       @todo.id_.should == nil
-      active = (Things::App.instance.todos.get - Things::List.trash.todos.get)
+      active = (Things::App.instance.todos.get - Things::List.trash.reference.todos.get)
       active.collect { |todo| todo.name.get }.should_not include("TEST - Foo")
     end
     
@@ -53,7 +45,7 @@ describe "Things::Todo" do
       it "should create the todo" do
         @todo.id_.should_not be_nil
         @todo.new?.should == false
-        active = (Things::App.instance.todos.get - Things::List.trash.todos.get)
+        active = (Things::App.instance.todos.get - Things::List.trash.reference.todos.get)
         active.collect { |todo| todo.name.get }.should include("TEST - Foo")
       end
       
@@ -96,13 +88,13 @@ describe "Things::Todo" do
     
     before do
       @todo.save
-      Things::App.lists.inbox.todos.name.get.should include(@todo.name)
+      Things::App.lists.inbox.reference.todos.name.get.should include(@todo.name)
     end
     
     it "should remove a todo" do
       @todo.delete
-      Things::App.lists.inbox.todos.name.get.should_not include(@todo.name)      
-      Things::App.lists.trash.todos.name.get.should include(@todo.name)
+      Things::App.lists.inbox.reference.todos.name.get.should_not include(@todo.name)      
+      Things::App.lists.trash.reference.todos.name.get.should include(@todo.name)
     end
     
     after do

@@ -19,6 +19,10 @@ module Things
       build(reference)
     end
     
+    def todos
+      Things::Todo.convert(reference.todos.get)
+    end
+    
     # Not supported by Things::Person
     # 
     # Raises a RuntimeError when called

@@ -8,5 +8,9 @@ module Things
     # collection is used for findings
     collection :projects
    
+    def todos
+      Things::Todo.convert(reference.todos.get)
+    end
+    
   end
 end
