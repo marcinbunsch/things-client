@@ -13,6 +13,7 @@ module Things
   autoload :Area, File.dirname(__FILE__) + '/things/area'
   autoload :Project, File.dirname(__FILE__) + '/things/project'
   autoload :Tag, File.dirname(__FILE__) + '/things/tag'
+  autoload :Person, File.dirname(__FILE__) + '/things/person'
   
   module Collections
     autoload :Todo, File.dirname(__FILE__) + '/things/collections/todo'
