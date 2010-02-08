@@ -4,15 +4,22 @@ Things is a Ruby API for the popular GTD app Things, available on the Mac.
 
 == Installation
 
-Currently, because this is an alpha version and it's too early for a release, installation must be done manually, like this:
+The gem is hosted on Gemcutter. To install it, use the following command:
 
-  git clone http://github.com/marcinbunsch/things
-  cd things
+  sudo gem install things-client --source http://gemcutter.org
+  
+To get the latest version, clone the gem from github and run rake install:
+
+  git clone http://github.com/marcinbunsch/things-client
+  cd things-client
   rake check_dependencies:runtime
-  rake build
-  sudo gem install pkg/things-0.0.1.gem
+  sudo rake install
 
 == Usage
+
+Before using this gem you must require it by calling:
+
+  require 'things'
 
 === Application
 
