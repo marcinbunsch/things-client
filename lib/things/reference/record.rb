@@ -52,8 +52,8 @@ module Things
       end
 
       # Save a Todo
-      # If a todo is new, it will be created
-      # If not, it will be updated
+      #
+      # If a todo is new, it will be created. If not, it will be updated
       def save
         if new?
           properties = {}
@@ -70,6 +70,7 @@ module Things
       end
 
       # Delete a object
+      #
       # This places the object in the trash
       def delete
         Things::App.instance.delete(self.reference) rescue false
@@ -81,6 +82,7 @@ module Things
       end
 
       # build a new instance and link it to the supplied reference
+      #
       # Returns a object associated with a reference
       def self.build(reference)
         todo = self.new
@@ -89,12 +91,14 @@ module Things
       end
 
       # find a todo by a name or id
+      #
       # Returns a Things::Todo object associated with a reference
       def self.find(name_or_id)
         find_by_name(name_or_id) || find_by_id(name_or_id)
       end
 
       # find a todo by a name
+      #
       # Returns a Things::Todo object associated with a reference
       def self.find_by_name(name)
         reference = Things::App.instance.send(self.collection)[name].get rescue nil
