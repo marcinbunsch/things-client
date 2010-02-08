@@ -4,7 +4,7 @@ require 'rake'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
-    gem.name = "things"
+    gem.name = "things-client"
     gem.summary = %Q{A Ruby client for Things' Applescript API. Things is a GTD app for OS X.}
     gem.email = "marcin@applicake.com"
     gem.homepage = "http://github.com/marcinbunsch/things"
@@ -38,7 +38,7 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "things #{version}"
+  rdoc.title = "things-client #{version}"
   rdoc.rdoc_files.include('README*')
   rdoc.rdoc_files.include('lib/**/*.rb')
 end
