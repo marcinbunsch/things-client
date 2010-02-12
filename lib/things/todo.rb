@@ -2,7 +2,7 @@ module Things
   # Things::Todo
   class Todo < Reference::Record
     
-    properties :name, :notes, :completion_date, :delegate, :status
+    properties :name, :notes, :completion_date, :delegate, :status, :area, :project
     # identifier is required for creation
     identifier :to_do
     # collection is used for findings

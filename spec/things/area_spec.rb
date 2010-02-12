@@ -140,6 +140,29 @@ describe "Things::Area" do
     
   end
   
+  describe '#todos' do
+    
+    before do
+      @foo = Things::Todo.new(:name => 'TEST - Foo')
+      @bar = Things::Todo.new(:name => 'TEST - Bar')
+    end
+    
+    after do
+      @foo.delete
+      @bar.delete
+      Things::App.instance.empty_trash
+    end
+    
+    it "should get todo assigner to a area" do
+      @area.save
+      @foo.area= @area
+      @foo.save
+      @foo.area.should == @area
+      @area.delete
+    end
+    
+  end
+  
   
 
 end

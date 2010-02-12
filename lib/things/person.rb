@@ -34,7 +34,7 @@ module Things
     # 
     # Raises a RuntimeError when called
     def delete
-      raise 'Currently Things does not support this method'
+      reference.delete
     end
     
   end

@@ -21,16 +21,16 @@ module Things
         if args
           @_properties += args
           @_properties.each do |property|
-            attr_writer(property) if !instance_methods.include?(property.to_s)
+            attr_writer(property) if !instance_methods.include?(property.to_s+'=')
             if !instance_methods.include?(property.to_s )
               class_eval <<-"eval"
                 def #{property}
-                  if !@#{property}
-                    fetched = @reference.#{property}.get rescue nil
-                    @#{property} = fetched if fetched and fetched != :missing_value
-                  else
-                    @#{property}
+                  return @#{property} if @#{property}
+                  fetched = @reference.#{property}.get rescue nil
+                  if fetched.is_a?(Appscript::Reference)
+                    fetched = fetched.identify.build(fetched)
                   end
+                  @#{property} = fetched if fetched and fetched != :missing_value
                 end
               eval
             end
@@ -58,12 +58,24 @@ module Things
         if new?
           properties = {}
           (self.class.properties - [:id_]).each do |property|
-            properties[property] = self.send(property) if self.send(property)
+            if value = self.send(property)
+              properties[property] = value.respond_to?(:reference) ? value.reference : value
+            end
           end
-          self.reference = Things::App.instance.make(:new => self.class.identifier, :with_properties => properties)
+          # only set name in make, then set the rest of the properties
+          name = properties.delete(:name)
+          self.reference = Things::App.instance.make(:new => self.class.identifier, :with_properties => { :name => name })
+          properties.each_pair { |name, property| self.reference.send(name).set(property) }
         else
           (self.class.properties - [:id_]).each do |property|
-            self.reference.send(property).set(self.send(property)) if self.send(property)
+            if value = self.send(property)
+              self.reference.send(property).set(value.respond_to?(:reference) ? value.reference : value)
+            else
+              begin
+                self.reference.send(property).delete
+              rescue
+              end
+            end
           end
         end
         self

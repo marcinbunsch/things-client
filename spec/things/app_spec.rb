@@ -12,13 +12,9 @@ describe "Things::App" do
   
   describe '#activate' do
   
-    it 'should start the app if it is not running' do
-      
-      # close if running
-      #Things::App.instance!.quit if `ps x | grep Things`.include?('Things.app')
-      #{}`ps x | grep Things`.should_not match('Things.app')
-      #Things::App.instance!.activate
-      #{}`ps x | grep Things`.should match('Things.app')
+    it 'should put the app in the front' do      
+      Things::App.instance!.activate
+      Things::App.instance.frontmost.get.should == true
     end
     
   end
