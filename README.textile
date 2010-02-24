@@ -29,6 +29,8 @@ bc. todo = Things::Todo.create(:name => 'Take out the garbage')
 todo.name = 'Take out the garbage and old boxes'  
 todo.save
 
+For more information, see the wiki at "http://wiki.github.com/marcinbunsch/things-client/":http://wiki.github.com/marcinbunsch/things-client/
+
 h2. Contribution
 
 You're more than welcome to fork and improve this gem. Usual rules:
