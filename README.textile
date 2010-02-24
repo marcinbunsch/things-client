@@ -1,0 +1,47 @@
+*things-client* is a ruby-base client for API of the popular GTD app Things, available on the Mac.
+
+h2. Requirements
+
+To use *things-client* you need Things which is version 1.2.0 or greater.
+
+h2. Installation
+
+The gem is hosted on Gemcutter. To install it, use the following command:
+
+bc. sudo gem install things-client --source http://gemcutter.org
+  
+To get the latest version, clone the gem from github and run rake install:
+
+bc. git clone http://github.com/marcinbunsch/things-client
+cd things-client
+rake check_dependencies:runtime
+sudo rake install
+
+h2. Usage
+
+Before using this gem you must require it by calling:
+
+bc. require 'things'
+
+From then on you can manipulate Todos, Projects, Areas, Tags, People and Lists, like this:
+
+bc. todo = Things::Todo.create(:name => 'Take out the garbage')
+todo.name = 'Take out the garbage and old boxes'  
+todo.save
+
+h2. Contribution
+
+You're more than welcome to fork and improve this gem. Usual rules:
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but
+  bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request.
+
+h2. Copyright
+
+Copyright (c) 2010 Marcin Bunsch. See LICENSE for details.

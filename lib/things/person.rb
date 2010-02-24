@@ -30,9 +30,7 @@ module Things
       raise 'Currently Things does not support this method'
     end
     
-    # Not supported by Things::Person
-    # 
-    # Raises a RuntimeError when called
+    # Deletes a Person
     def delete
       reference.delete
     end
