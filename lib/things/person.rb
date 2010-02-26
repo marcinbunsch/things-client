@@ -14,7 +14,7 @@ module Things
       # Find a Person in Address Book and add a teammate in Things
       #
       # Returns a Things::Person object
-      def self.create(address_book_name)
+      def create(address_book_name)
         reference = Things::App.instance.add_teammate_named(address_book_name)
         raise 'Could not find person in Address Book' if reference == :missing_value
         build(reference)
