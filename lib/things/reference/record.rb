@@ -101,6 +101,11 @@ module Things
         todo.reference = reference
         todo
       end
+      
+      # Converts a collection of reference into a collection of objects
+      def self.convert(references)
+        references.to_a.collect { |todo| build(todo) }
+      end
 
       # find a todo by a name or id
       #

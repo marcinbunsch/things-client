@@ -8,5 +8,11 @@ module Things
     # collection is used for findings
     collection :tags
    
+    class << self
+      def all
+        convert(Things::App.instance.tags.get)
+      end
+    end
+    
   end
 end

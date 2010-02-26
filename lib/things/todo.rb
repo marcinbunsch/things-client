@@ -63,11 +63,6 @@ module Things
         Things::App.instance.todos
       end
       
-      # Converts a collection of reference into a collection of objects
-      def convert(references)
-        references.to_a.collect { |todo| build(todo) }
-      end
-      
       # these are references and should be stored somewhere else...
       Things::List::DEFAULTS.each do |list|
         class_eval <<-"eval"
