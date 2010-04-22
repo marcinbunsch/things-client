@@ -19,6 +19,10 @@ module Things
         raise 'Could not find person in Address Book' if reference == :missing_value
         build(reference)
       end
+      
+      def all
+        convert(Things::App.instance.people.get)
+      end
 
     end
     
