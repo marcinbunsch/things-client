@@ -4,47 +4,62 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{things}
-  s.version = "0.0.1"
+  s.name = %q{things-client}
+  s.version = "0.2.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcin Bunsch"]
-  s.date = %q{2010-02-06}
+  s.date = %q{2010-02-26}
   s.email = %q{marcin@applicake.com}
   s.extra_rdoc_files = [
     "LICENSE",
-     "README"
+     "README.textile"
   ]
   s.files = [
     ".document",
      ".gitignore",
      "LICENSE",
-     "README",
+     "README.textile",
      "Rakefile",
      "VERSION",
      "lib/appscript/reference.rb",
      "lib/things.rb",
      "lib/things/app.rb",
-     "lib/things/collections/todo.rb",
+     "lib/things/area.rb",
      "lib/things/list.rb",
+     "lib/things/person.rb",
+     "lib/things/project.rb",
+     "lib/things/reference/base.rb",
+     "lib/things/reference/inheritance.rb",
+     "lib/things/reference/record.rb",
      "lib/things/status.rb",
+     "lib/things/tag.rb",
      "lib/things/todo.rb",
      "spec/spec.opts",
      "spec/spec_helper.rb",
      "spec/things/app_spec.rb",
-     "spec/things/collections/todo_spec.rb",
+     "spec/things/area_spec.rb",
+     "spec/things/list_spec.rb",
+     "spec/things/person_spec.rb",
+     "spec/things/project_spec.rb",
+     "spec/things/tag_spec.rb",
      "spec/things/todo_spec.rb",
-     "spec/things_spec.rb"
+     "spec/things_spec.rb",
+     "things.gemspec"
   ]
   s.homepage = %q{http://github.com/marcinbunsch/things}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.5}
-  s.summary = %q{A Ruby API client written for the Mac GTD app Things}
+  s.summary = %q{A Ruby client for Things' Applescript API. Things is a GTD app for OS X.}
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/things/app_spec.rb",
-     "spec/things/collections/todo_spec.rb",
+     "spec/things/area_spec.rb",
+     "spec/things/list_spec.rb",
+     "spec/things/person_spec.rb",
+     "spec/things/project_spec.rb",
+     "spec/things/tag_spec.rb",
      "spec/things/todo_spec.rb",
      "spec/things_spec.rb"
   ]
