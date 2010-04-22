@@ -161,6 +161,23 @@ describe "Things::Area" do
       @area.delete
     end
     
+    # Reported by http://github.com/marcinbunsch/things-client/issues/1
+    it "should maintain association to area on update" do
+      @area.save
+      @area = Things::Area.find(@area.name)
+      @todo = Things::Todo.new(:name => 'TestTODO')
+      @todo.area= @area
+      @todo.save
+      @todo.area.should == @area
+      @todo = Things::Todo.find(@todo.name)
+      @todo.area= @area
+      @todo.save
+      @todo = Things::Todo.find(@todo.name)
+      @todo.area.name.should == @area.name
+      @area.delete
+      @todo.delete
+    end
+    
   end
   
   

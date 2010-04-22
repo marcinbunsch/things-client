@@ -67,7 +67,12 @@ module Things
           self.reference = Things::App.instance.make(:new => self.class.identifier, :with_properties => { :name => name })
           properties.each_pair { |name, property| self.reference.send(name).set(property) }
         else
-          (self.class.properties - [:id_]).each do |property|
+          # update
+          properties = self.class.properties - [:id_]
+          # If :area is present, push it to end the because if other  
+          # properties are removed, Things removes the Area altogether
+          properties.push(properties.delete(:area)) if properties.include?(:area)
+          properties.each do |property|
             if value = self.send(property)
               self.reference.send(property).set(value.respond_to?(:reference) ? value.reference : value)
             else
