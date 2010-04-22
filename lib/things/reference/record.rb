@@ -77,7 +77,8 @@ module Things
               self.reference.send(property).set(value.respond_to?(:reference) ? value.reference : value)
             else
               begin
-                self.reference.send(property).delete
+                # Check if the original value was not empty and remove it if wasn't
+                self.reference.send(property).delete if self.reference.send(property).get != :missing_value
               rescue
               end
             end
